@@ -21,7 +21,7 @@ const Navbar: React.FC = () => {
     <nav className="bg-gray-800 p-4">
       <div className="container mx-auto flex justify-between items-center">
         <div className="text-white font-bold text-xl flex items-center">
-          <Link to="/">Aprendizado Gamificado</Link>
+          <Link to="/">GeoLearn</Link>
         </div>
         <div className="space-x-4 flex items-center">
           <Link

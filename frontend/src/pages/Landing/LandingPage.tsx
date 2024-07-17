@@ -11,7 +11,7 @@ const LandingPage: React.FC = () => {
   return (
     <div className="bg-black text-white min-h-screen flex flex-col items-center justify-center">
       <h1 className="text-4xl font-bold mt-8">
-        Bem-vindo ao App de Aprendizado Gamificado
+        Bem-vindo ao GeoLearn um App de Aprendizado Gamificado
       </h1>
       <p className="mt-4 text-lg">
         Torne o aprendizado mais envolvente e eficaz com nossos quizzes e
