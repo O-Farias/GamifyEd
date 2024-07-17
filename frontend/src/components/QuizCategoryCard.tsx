@@ -12,7 +12,7 @@ const QuizCategoryCard: React.FC<QuizCategoryCardProps> = ({
   description,
 }) => {
   return (
-    <div className="bg-gray-800 p-4 rounded-lg shadow-lg">
+    <div className="bg-gray-800 p-4 rounded-lg shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-2xl">
       <img
         src={image}
         alt={title}
