@@ -6,17 +6,79 @@ import Register from "./pages/Auth/Register";
 import ForgotPassword from "./pages/Auth/ForgotPassword";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Quizzes from "./pages/Quizzes/Quizzes";
+import Profile from "./pages/Profile/Profile";
+import Admin from "./pages/Admin/Admin";
+import PublicLayout from "./layouts/PublicLayout";
+import PrivateLayout from "./layouts/PrivateLayout";
 
 const App: React.FC = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<LandingPage />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/forgot-password" element={<ForgotPassword />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/quizzes" element={<Quizzes />} />
+        <Route
+          path="/"
+          element={
+            <PublicLayout>
+              <LandingPage />
+            </PublicLayout>
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <PublicLayout>
+              <Login />
+            </PublicLayout>
+          }
+        />
+        <Route
+          path="/register"
+          element={
+            <PublicLayout>
+              <Register />
+            </PublicLayout>
+          }
+        />
+        <Route
+          path="/forgot-password"
+          element={
+            <PublicLayout>
+              <ForgotPassword />
+            </PublicLayout>
+          }
+        />
+        <Route
+          path="/dashboard"
+          element={
+            <PrivateLayout>
+              <Dashboard />
+            </PrivateLayout>
+          }
+        />
+        <Route
+          path="/quizzes"
+          element={
+            <PrivateLayout>
+              <Quizzes />
+            </PrivateLayout>
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            <PrivateLayout>
+              <Profile />
+            </PrivateLayout>
+          }
+        />
+        <Route
+          path="/admin"
+          element={
+            <PrivateLayout>
+              <Admin />
+            </PrivateLayout>
+          }
+        />
       </Routes>
     </Router>
   );
