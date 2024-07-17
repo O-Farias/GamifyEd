@@ -10,6 +10,9 @@ import Profile from "./pages/Profile/Profile";
 import Admin from "./pages/Admin/Admin";
 import PublicLayout from "./layouts/PublicLayout";
 import PrivateLayout from "./layouts/PrivateLayout";
+import Continentes from "./pages/Quizzes/Continentes";
+import Paises from "./pages/Quizzes/Paises";
+import Capitais from "./pages/Quizzes/Capitais";
 
 const App: React.FC = () => {
   return (
@@ -60,6 +63,30 @@ const App: React.FC = () => {
           element={
             <PrivateLayout>
               <Quizzes />
+            </PrivateLayout>
+          }
+        />
+        <Route
+          path="/quizzes/continentes"
+          element={
+            <PrivateLayout>
+              <Continentes />
+            </PrivateLayout>
+          }
+        />
+        <Route
+          path="/quizzes/paises"
+          element={
+            <PrivateLayout>
+              <Paises />
+            </PrivateLayout>
+          }
+        />
+        <Route
+          path="/quizzes/capitais"
+          element={
+            <PrivateLayout>
+              <Capitais />
             </PrivateLayout>
           }
         />
