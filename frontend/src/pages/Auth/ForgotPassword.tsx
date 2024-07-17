@@ -1,12 +1,18 @@
 import React, { useState } from "react";
+import { FaEnvelope } from "react-icons/fa";
 
 const ForgotPassword: React.FC = () => {
   const [email, setEmail] = useState("");
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-    //  adicionar a lógica para enviar a solicitação de redefinição de senha
-    console.log("E-mail para redefinição de senha:", email);
+    // Simulação de envio de e-mail de recuperação de senha
+    if (email) {
+      alert("E-mail de recuperação de senha enviado!");
+      // adicionar a lógica de recuperação de senha futura
+    } else {
+      alert("Por favor, preencha o campo de e-mail.");
+    }
   };
 
   return (
@@ -20,14 +26,18 @@ const ForgotPassword: React.FC = () => {
             <label className="block text-sm font-medium mb-2" htmlFor="email">
               E-mail
             </label>
-            <input
-              type="email"
-              id="email"
-              className="w-full p-2 rounded bg-gray-700 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
+            <div className="flex items-center bg-gray-700 p-2 rounded">
+              <FaEnvelope className="text-gray-400 mr-2" />
+              <input
+                type="email"
+                id="email"
+                className="w-full bg-transparent border-none focus:outline-none"
+                placeholder="Seu e-mail"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+            </div>
           </div>
           <button
             type="submit"
@@ -36,6 +46,14 @@ const ForgotPassword: React.FC = () => {
             Enviar
           </button>
         </form>
+        <div className="mt-4 text-center">
+          <p className="mt-2">
+            Lembrou sua senha?{" "}
+            <a href="/login" className="text-blue-500 hover:underline">
+              Entrar
+            </a>
+          </p>
+        </div>
       </div>
     </div>
   );

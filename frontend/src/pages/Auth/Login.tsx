@@ -1,14 +1,21 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { FaUser, FaLock } from "react-icons/fa";
 
 const Login: React.FC = () => {
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-    // Aqui você pode adicionar a lógica de autenticação
-    console.log("Usuário:", username, "Senha:", password);
+    // Simulação de validação de login
+    if (email && password) {
+      // adicionar a lógica de autenticação futura
+      navigate("/dashboard"); // Redireciona para o Dashboard
+    } else {
+      alert("Por favor, preencha todos os campos.");
+    }
   };
 
   return (
@@ -17,20 +24,21 @@ const Login: React.FC = () => {
         <h2 className="text-3xl font-bold mb-6 text-center">Login</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
-            <label
-              className="block text-sm font-medium mb-2"
-              htmlFor="username"
-            >
+            <label className="block text-sm font-medium mb-2" htmlFor="email">
               E-mail
             </label>
-            <input
-              type="text"
-              id="username"
-              className="w-full p-2 rounded bg-gray-700 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              required
-            />
+            <div className="flex items-center bg-gray-700 p-2 rounded">
+              <FaUser className="text-gray-400 mr-2" />
+              <input
+                type="email"
+                id="email"
+                className="w-full bg-transparent border-none focus:outline-none"
+                placeholder="Seu e-mail"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+            </div>
           </div>
           <div className="mb-6">
             <label
@@ -39,14 +47,18 @@ const Login: React.FC = () => {
             >
               Senha
             </label>
-            <input
-              type="password"
-              id="password"
-              className="w-full p-2 rounded bg-gray-700 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
+            <div className="flex items-center bg-gray-700 p-2 rounded">
+              <FaLock className="text-gray-400 mr-2" />
+              <input
+                type="password"
+                id="password"
+                className="w-full bg-transparent border-none focus:outline-none"
+                placeholder="Sua senha"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+            </div>
           </div>
           <button
             type="submit"
@@ -57,18 +69,18 @@ const Login: React.FC = () => {
         </form>
         <div className="mt-4 text-center">
           <p>
-            <Link
-              to="/forgot-password"
+            <a
+              href="/forgot-password"
               className="text-blue-500 hover:underline"
             >
               Esqueceu sua senha?
-            </Link>
+            </a>
           </p>
           <p className="mt-2">
             Ainda não tem uma conta?{" "}
-            <Link to="/register" className="text-blue-500 hover:underline">
+            <a href="/register" className="text-blue-500 hover:underline">
               Registre-se
-            </Link>
+            </a>
           </p>
         </div>
       </div>
